@@ -1,24 +1,25 @@
 import sys
-import dotenv
-import src.adapters.json as audit_json
+import src.settings as settings
+import src.adapters.json as json_adapter
+import src.adapters.markdown as markdown_adapter
 
-dotenv.load_dotenv()
 
-
-CLIENT_NOT_FOUND_ERROR = ("Error: When running reporter, make sure to inform the client config file python3 main.py [client-file]")
-
+CLIENT_NOT_FOUND_ERROR = (
+    "Error: When running reporter, make sure to inform the client config file: python3 main.py [client-file]"
+)
 
 def main():
+
     if len(sys.argv) < 2:
         raise Exception(CLIENT_NOT_FOUND_ERROR)
 
-    client = audit_json.load_json(sys.argv[1])
+    client = json_adapter.load_client(
+        settings.AUDIT_CONFIG_FILES_PATH + sys.argv[1] + ".json"
+    )
 
-    print(client)
+    # LOAD GITHUB ISSUES OBJECT
 
-    #LOAD GITHUB ISSUES OBJECT
-
-    #markwdown.build_report(client)
+    markdown_adapter.hi(settings.MARKDOWN_TEMPLATE_PATH)
 
 
 if __name__ == "__main__":
