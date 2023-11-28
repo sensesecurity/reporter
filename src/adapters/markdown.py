@@ -30,14 +30,16 @@ def build_from_template(client, path, template, output_path):
         current_time = datetime.datetime.now()
         filename = f"{client.get('name')}_{current_time.strftime('%Y%m%d%H%M%S')}"
 
-        # Generate Markdown table for files in scope
-        scope_table_content = "| File | Link |\n"
-        for contract_url in client.get("scope"):
-            scope_table_content += f"| {contract_url} | {contract_url} |\n"
+        if CLIENT_SCOPE_PLACEHOLDER in markdown_content:
+            scope_table_content = "| File               |\n"
+            scope_table_content += "|--------------------|\n"
 
-        markdown_content = markdown_content.replace(
-            CLIENT_SCOPE_PLACEHOLDER, scope_table_content
-        )
+            for contract_url in client.get("scope"):
+                scope_table_content += f"| {contract_url} | \n"
+
+            markdown_content = markdown_content.replace(
+                CLIENT_SCOPE_PLACEHOLDER, scope_table_content
+            )
 
         # Save the generated Markdown content to the output folder
         with open(f"{output_path}/{filename}.md", "w", encoding="utf-8") as output_f:
