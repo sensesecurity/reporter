@@ -23,14 +23,14 @@ def main():
         client.get('repo_name'), 
         settings.ACCESS_TOKEN
     )
-
-    """
+    
     markdown_adapter.build_from_template(
-        client, 
+        client,
+        issues, 
         settings.MARKDOWN_TEMPLATE_PATH, 
         settings.TEMPLATE,
         settings.REPORT_OUTPUT_PATH
-    )"""
+    )
 
 if __name__ == "__main__":
     try:

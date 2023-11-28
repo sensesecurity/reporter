@@ -11,7 +11,7 @@ CLIENT_CONTENT_LIST_PLACEHOLDER = "$$[CLIENT-CONTRACT-AUDIT-CONTENT-LIST]$$"
 CLIENT_ISSUES_PLACEHOLDER = "$$[CLIENT-CONTRACT-AUDIT-ISSUES]$$"
 
 
-def build_from_template(client, path, template, output_path):
+def build_from_template(client, issues, path, template, output_path):
     try:
         with open(path + template, "r", encoding="utf-8") as f:
             markdown_content = f.read()
@@ -39,6 +39,17 @@ def build_from_template(client, path, template, output_path):
 
             markdown_content = markdown_content.replace(
                 CLIENT_SCOPE_PLACEHOLDER, scope_table_content
+            )
+
+        if CLIENT_CONTENT_LIST_PLACEHOLDER in markdown_content:
+            titles = ""
+            # Loop through the issues
+            for issue in issues:
+                # Add a bullet point and the issue title to the string, followed by a newline
+                titles += f"- {issue['title']}\n"
+            
+            markdown_content = markdown_content.replace(
+                CLIENT_CONTENT_LIST_PLACEHOLDER, titles
             )
 
         # Save the generated Markdown content to the output folder
