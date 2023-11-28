@@ -19,7 +19,10 @@ def main():
     # LOAD GITHUB ISSUES OBJECT
 
     markdown_adapter.build_from_template(
-        client, settings.MARKDOWN_TEMPLATE_PATH, settings.TEMPLATE 
+        client, 
+        settings.MARKDOWN_TEMPLATE_PATH, 
+        settings.TEMPLATE,
+        settings.REPORT_OUTPUT_PATH
     )
 
 if __name__ == "__main__":

@@ -1,4 +1,5 @@
 import markdown
+import datetime
 
 ERROR_FILE_NOT_FOUND = "Error: File not found"
 
@@ -10,7 +11,7 @@ CLIENT_CONTENT_LIST_PLACEHOLDER = "$$[CLIENT-CONTRACT-AUDIT-CONTENT-LIST]$$"
 CLIENT_ISSUES_PLACEHOLDER = "$$[CLIENT-CONTRACT-AUDIT-ISSUES]$$"
 
 
-def build_from_template(client, path, template):
+def build_from_template(client, path, template, output_path):
     try:
         with open(path + template, "r", encoding="utf-8") as f:
             markdown_content = f.read()
@@ -20,9 +21,18 @@ def build_from_template(client, path, template):
                 CLIENT_NAME_PLACEHOLDER, client.get("client_name")
             )
 
+        if CLIENT_DESC_PLACEHOLDER in markdown_content:
+            markdown_content = markdown_content.replace(
+                CLIENT_DESC_PLACEHOLDER, client.get("client_description")
+            )
+            
+        # Generate filename with client name and timestamp
+        current_time = datetime.datetime.now()
+        filename = f"{client.get('client_name')}_{current_time.strftime('%Y%m%d%H%M%S')}"
 
-        print(markdown_content)
+        # Save the generated Markdown content to the output folder
+        with open(f"{output_path}/{filename}.md", "w", encoding="utf-8") as output_f:
+            output_f.write(markdown_content)
 
-        
     except FileNotFoundError:
         print(ERROR_FILE_NOT_FOUND)
