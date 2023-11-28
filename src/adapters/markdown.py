@@ -2,5 +2,5 @@ import markdown
 
 ERROR_FILE_NOT_FOUND = "Error: File not found"
 
-def hi(path):
-    print(path)
+def build_from_template(path, data):
+    print(path, data)

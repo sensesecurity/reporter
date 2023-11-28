@@ -4,6 +4,7 @@ ERROR_FILE_NOT_FOUND = "Error: File not found"
 ERROR_FILE_INVALID = "Error: Invalid JSON data"
 ERROR_FILE_EMPTY = "Error: Empty JSON data"
 
+
 def load_client(file_name):
     try:
         with open(file_name, "r") as f:
@@ -17,6 +18,7 @@ def load_client(file_name):
         raise ValueError(ERROR_FILE_EMPTY)
 
     return data
+
 
 def is_valid_json(file_name):
     try:

@@ -3,13 +3,12 @@ import src.settings as settings
 import src.adapters.json as json_adapter
 import src.adapters.markdown as markdown_adapter
 
-
 CLIENT_NOT_FOUND_ERROR = (
-    "Error: When running reporter, make sure to inform the client config file: python3 main.py [client-file]"
+    "Error: When running reporter, make sure to inform the client config file:\npython3 main.py [client-file]"
 )
 
-def main():
 
+def main():
     if len(sys.argv) < 2:
         raise Exception(CLIENT_NOT_FOUND_ERROR)
 
@@ -19,8 +18,9 @@ def main():
 
     # LOAD GITHUB ISSUES OBJECT
 
-    markdown_adapter.hi(settings.MARKDOWN_TEMPLATE_PATH)
-
+    markdown_adapter.build_from_template(
+        settings.MARKDOWN_TEMPLATE_PATH, client
+    )
 
 if __name__ == "__main__":
     try:
