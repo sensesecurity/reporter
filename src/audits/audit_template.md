@@ -1,4 +1,4 @@
-# SenseSecurity **$[CLIENT-NAME]$** Audit 
+# SenseSecurity **$$[CLIENT-NAME]$$** Audit 
 
 # Disclaimer
 
@@ -8,9 +8,9 @@ A smart contract security review can never verify the complete absence of vulner
 
 Lorem Ipsum
 
-# About **$[CLIENT-NAME]$**
+# About **$$[CLIENT-NAME]$$**
 
-$[CLIENT-DESCRIPTION]$
+$$[CLIENT-DESCRIPTION]$$
 
 # Severity classification
 
@@ -22,10 +22,10 @@ $[CLIENT-DESCRIPTION]$
 
 
 ### Scope
-$[CLIENT-CONTRACT-SCOPE]$
+$$[CLIENT-CONTRACT-SCOPE]$$
 
 ### Contents
-$[CLIENT-CONTRACT-AUDIT-CONTENT-LIST]$
+$$[CLIENT-CONTRACT-AUDIT-CONTENT-LIST]$$
 
 ### Issues
-$[CLIENT-CONTRACT-AUDIT-ISSUES]$
+$$[CLIENT-CONTRACT-AUDIT-ISSUES]$$
