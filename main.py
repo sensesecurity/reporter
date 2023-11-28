@@ -12,8 +12,11 @@ def main():
     if len(sys.argv) < 2:
         raise Exception(CLIENT_NOT_FOUND_ERROR)
 
-    client = audit_json.load("sr")
+    client = audit_json.load(sys.argv[1])
 
+    #LOAD GITHUB ISSUES OBJECT
+
+    #markwdown.build_report(client)
 
 
 if __name__ == "__main__":
