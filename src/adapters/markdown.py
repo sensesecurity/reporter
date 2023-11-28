@@ -18,17 +18,26 @@ def build_from_template(client, path, template, output_path):
 
         if CLIENT_NAME_PLACEHOLDER in markdown_content:
             markdown_content = markdown_content.replace(
-                CLIENT_NAME_PLACEHOLDER, client.get("client_name")
+                CLIENT_NAME_PLACEHOLDER, client.get("name")
             )
 
         if CLIENT_DESC_PLACEHOLDER in markdown_content:
             markdown_content = markdown_content.replace(
-                CLIENT_DESC_PLACEHOLDER, client.get("client_description")
+                CLIENT_DESC_PLACEHOLDER, client.get("description")
             )
-            
+
         # Generate filename with client name and timestamp
         current_time = datetime.datetime.now()
-        filename = f"{client.get('client_name')}_{current_time.strftime('%Y%m%d%H%M%S')}"
+        filename = f"{client.get('name')}_{current_time.strftime('%Y%m%d%H%M%S')}"
+
+        # Generate Markdown table for files in scope
+        scope_table_content = "| File | Link |\n"
+        for contract_url in client.get("scope"):
+            scope_table_content += f"| {contract_url} | {contract_url} |\n"
+
+        markdown_content = markdown_content.replace(
+            CLIENT_SCOPE_PLACEHOLDER, scope_table_content
+        )
 
         # Save the generated Markdown content to the output folder
         with open(f"{output_path}/{filename}.md", "w", encoding="utf-8") as output_f:

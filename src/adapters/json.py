@@ -7,7 +7,7 @@ ERROR_FILE_EMPTY = "Error: Empty JSON data"
 
 def load_client(file_name):
     try:
-        with open(file_name, "r") as f:
+        with open(file_name+".json", "r") as f:
             data = json.load(f)
     except FileNotFoundError:
         raise FileNotFoundError(ERROR_FILE_NOT_FOUND)

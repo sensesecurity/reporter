@@ -13,7 +13,7 @@ def main():
         raise Exception(CLIENT_NOT_FOUND_ERROR)
 
     client = json_adapter.load_client(
-        settings.AUDIT_CONFIG_FILES_PATH + sys.argv[1] + ".json"
+        settings.AUDIT_CONFIG_FILES_PATH + sys.argv[1]
     )
 
     # LOAD GITHUB ISSUES OBJECT
