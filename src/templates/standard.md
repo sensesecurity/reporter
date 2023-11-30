@@ -1,4 +1,4 @@
-
+![SenseSecurity](https://raw.githubusercontent.com/sensesecurity/reporter/main/src/resources/cover.jpg)
 
 # SenseSecurity **$$[CLIENT-NAME]$$** Audit 
 
@@ -10,7 +10,11 @@ A smart contract security review can never verify the complete absence of vulner
 
 SenseSecurity is a network of researchers who specialize in Web3 security. They are selected from OpenSense, the most active Web3 security venture in the market. OpenSense cultivates a strong bond with researchers of all backgrounds and skills, and matches them with the best protocols for their expertise. SenseSecurity operates independently from OpenSense, but uses it as a gateway to access the top auditors in web3 security.
 
+## links
 
+[website](https://opensense.pw/)
+
+[twitter](https://x.com/OpenSensepw)
 
 
 # About **$$[CLIENT-NAME]$$**
