@@ -1,4 +1,4 @@
-![SenseSecurity](https://raw.githubusercontent.com/sensesecurity/reporter/main/src/resources/cover.jpg)
+![SenseSecurity](https://raw.githubusercontent.com/sensesecurity/reporter/main/src/resources/cover_n.jpg)
 
 # SenseSecurity **$$[CLIENT-NAME]$$** Audit 
 
