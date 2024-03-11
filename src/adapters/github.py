@@ -19,7 +19,7 @@ def load_issues(base_uri, owner, repo_name, access_token):
         issues = response.json()
         
         # Define a dictionary to map the label names to numeric values
-        label_values = {"high": 4, "medium": 3, "low": 2, "info": 1}
+        label_values = {"critical": 5, "high": 4, "medium": 3, "low": 2, "info": 1}
 
         # Define a function to sort the issues by label value
         def sort_by_label(issue):
@@ -43,7 +43,7 @@ def load_issues(base_uri, owner, repo_name, access_token):
         issues.sort(key=sort_by_label, reverse=True)
 
         # Define a dictionary to keep track of the issue numbers for each label
-        issue_numbers = {"high": 0, "medium": 0, "low": 0, "info" : 0}
+        issue_numbers = {"critical": 0, "high": 0, "medium": 0, "low": 0, "info" : 0}
 
         # Loop through the sorted issues
         for issue in issues:
